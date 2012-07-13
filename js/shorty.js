@@ -1388,7 +1388,7 @@ Shorty =
             var proceed=$.prompt({state0:{html:message,
                                           buttons:{Ok:true,Cancel:false},
                                           position:{container:'#dialog-share',width:'auto',arrow:'bc',
-                                                    x:position.left-173,y:position.top-239},
+                                                    x:position.left-206,y:position.top-239},
                                           submit:function(e,v,m,f){if(v) window.location=mailLink;else  $.prompt.close();} }});
             $('#jqibox fieldset #payload').val(mailBody);
             $('#jqibox fieldset #payload').focus().select();
@@ -1404,7 +1404,7 @@ Shorty =
             var proceed=$.prompt({state0:{html:message,
                                           buttons:{Ok:true,Cancel:false},
                                           position:{container:'#dialog-share',width:'auto',arrow:'bc',
-                                                    x:position.left-168,y:position.top-299},
+                                                    x:position.left-204,y:position.top-299},
                                           submit:function(e,v,m,f){if(v) window.location='sms:';else  $.prompt.close();} }});
             $('#jqibox fieldset #payload').val(smsBody);
             $('#jqibox fieldset #payload').focus().select();
@@ -1417,7 +1417,7 @@ Shorty =
             var proceed=$.prompt({state0:{html:message,
                                           buttons:{Ok:true},
                                           position:{container:'#dialog-share',width:'auto',arrow:'br',
-                                                    x:position.left-270,y:position.top-138} } });
+                                                    x:position.left-428,y:position.top-138} } });
             $('#jqibox fieldset #payload').val(clipboardBody);
             $('#jqibox fieldset #payload').focus().select();
             break;

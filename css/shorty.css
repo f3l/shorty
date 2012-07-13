@@ -609,7 +609,7 @@
 }
 /* customization of styles for the 3rdparty jquery.impromtu prompts */
 div.jqi {
-  width:auto;
+  width:480px;
   padding:4px;
 }
 .jqiwarning .jqi .jqibuttons{
