@@ -153,11 +153,11 @@ class OC_Shorty_Tools
 		$alphabet=OCP\Config::getAppValue('shorty','id-alphabet');
 		if ( empty($alphabet) )
 		{
-			$alphabet = self::randomAlphabet(62);
+			$alphabet = self::randomAlphabet();
 			OCP\Config::setAppValue ( 'shorty', 'id-alphabet', $alphabet );
 		}
 		// use alphabet to generate a id being unique over time
-		return self::convertToAlphabet ( str_replace(array(' ','.'),'',microtime()), $alphabet );
+		return self::convertToAlphabet (str_replace(array(' ','.'), '', time()), $alphabet );
 	} // function shorty_id
 
 	/**
@@ -166,12 +166,10 @@ class OC_Shorty_Tools
 	* @access public
 	* @author Christian Reiner
 	*/
-	static function randomAlphabet ($length)
+	static function randomAlphabet ()
 	{
-		if ( ! is_integer($length) )
-			return FALSE;
-		$c = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxwz0123456789";
-		return substr ( str_shuffle($c), 0, $length );
+		$c = "abcdefghijklmnopqrstuvwxwz";
+		return str_shuffle($c);
 	} // function randomAlphabet
 
 	/**
@@ -198,7 +196,9 @@ class OC_Shorty_Tools
 			if ($curChar >= $alphabetLen)
 			{
 				$pos++;
-			} else {
+			}
+			else
+			{
 				$decVal -= ($curChar * $valPerChar);
 				if ($number === FALSE)
 				{
@@ -207,8 +207,8 @@ class OC_Shorty_Tools
 				}
 				$number = substr($number, 0, ($nslen - $pos)) . $alphabet{(int)$curChar} . substr($number, (($nslen - $pos) + 1));
 				$pos--;
-			} // else
-		} // while
+			}
+		}
 		if ($number === FALSE) $number = $alphabet{1};
 			return $number;
 	}
